@@ -42,7 +42,7 @@ _global_script_classes=[ {
 "base": "RayCast2D",
 "class": "RayoLaser",
 "language": "GDScript",
-"path": "res://Juego/Proyectiles/Laser/LaserBeam2D.gd"
+"path": "res://Juego/Proyectiles/Laser/RayoLaser.gd"
 } ]
 _global_script_class_icons={
 "Canion": "",
