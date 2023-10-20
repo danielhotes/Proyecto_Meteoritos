@@ -1,52 +1,50 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Juego/Naves/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Juego/Niveles/Nivel.gd" type="Script" id=2]
 [ext_resource path="res://default_env.tres" type="Environment" id=3]
 [ext_resource path="res://Juego/Explosiones/Explosion.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Juego/Meteoritos/Meteorito.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Juego/Meteoritos/MeteoritoSpawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Juego/Peligros/SectorDePeligro.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Juego/Explosiones/ExplosionMeteorito.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Juego/Niveles/Fondos/fondo.png" type="Texture" id=8]
+[ext_resource path="res://Juego/Meteoritos/SectorMeteoritos.tscn" type="PackedScene" id=9]
 
 [node name="NivelTest" type="Node2D"]
 script = ExtResource( 2 )
 explosion = ExtResource( 4 )
 meteorito = ExtResource( 5 )
 explosion_meteorito = ExtResource( 7 )
+sector_meteoritos = ExtResource( 9 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scale = Vector2( 4, 3 )
+transform = Transform2D( 4, 0, 0, 3, 0, 0 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_offset = Vector2( 1, 1 )
 motion_mirroring = Vector2( 256, 256 )
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
 margin_right = 40.0
 margin_bottom = 40.0
+rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 554.204, 488.224 )
+position = Vector2( 952.562, 560.267 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 3 )
 
-[node name="MeteoritoSpawner" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2393.67, 1030.71 )
-direccion = Vector2( -2, -1 )
+[node name="TriggersLluviaMeteoritos" type="Node2D" parent="."]
 
-[node name="MeteoritoSpawner2" parent="." instance=ExtResource( 6 )]
-position = Vector2( -222.754, 1393.16 )
-direccion = Vector2( 2, -1 )
+[node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" instance=ExtResource( 6 )]
+position = Vector2( 978.942, 330.552 )
+tipo_peligro = "Meteorito"
 
-[node name="MeteoritoSpawner3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2260.72, -268.31 )
-direccion = Vector2( -2, 1 )
+[node name="CamaraNivel" type="Camera2D" parent="."]
 
-[node name="MeteoritoSpawner4" parent="." instance=ExtResource( 6 )]
-position = Vector2( 107.091, -496.813 )
-direccion = Vector2( 2, 1 )
+[node name="TweenCamara" type="Tween" parent="."]
