@@ -11,6 +11,7 @@ var hitpoints:float
 var esta_en_sector:bool = true setget set_esta_en_sector
 var pos_spawn_original:Vector2
 var vel_spawn_original:Vector2
+var esta_destruido:bool = false
 
 ## Atributos Onready
 onready var impactos_sfx:AudioStreamPlayer2D = $ImpactoSFX
@@ -58,7 +59,8 @@ func _ready() -> void:
 ## Métodos Custom
 func recibir_danio(danio:float) -> void:
 	hitpoints -= danio
-	if hitpoints <= 0.0:
+	if hitpoints <= 0.0 and not esta_destruido:
+		esta_destruido = true
 		destruir()
 	impactos_sfx.play()
 	animacion.play("recibir_danio")

@@ -56,7 +56,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0.713726, 0.658824, 0.658824, 1 ), Color( 0.713726, 0.658824, 0.658824, 0 ) ]
+"values": [ Color( 0.713726, 0.658824, 0.658824, 0.529412 ), Color( 0.713726, 0.658824, 0.658824, 0 ) ]
 }
 tracks/2/type = "audio"
 tracks/2/path = NodePath("AdvertenciaSFX")
@@ -284,7 +284,7 @@ direccion = Vector2( -2, 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-modulate = Color( 0.713726, 0.658824, 0.658824, 0.3 )
+modulate = Color( 0.713726, 0.658824, 0.658824, 0.705882 )
 self_modulate = Color( 0.619608, 0.129412, 0.129412, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -311,7 +311,6 @@ __meta__ = {
 }
 
 [node name="AdvertenciaSFX" type="AudioStreamPlayer" parent="."]
-volume_db = -21.0
 bus = "SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
