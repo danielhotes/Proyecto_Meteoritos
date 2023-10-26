@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/recarga_sfx.ogg-b0f582b2a818e0df257f7a3ae77211ab.oggstr"
+
+[deps]
+
+source_file="res://Juego/Naves/Estaciones/recarga_sfx.ogg"
+dest_files=[ "res://.import/recarga_sfx.ogg-b0f582b2a818e0df257f7a3ae77211ab.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Juego/Naves/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Juego/Niveles/Nivel.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Juego/Niveles/Fondos/fondo.png" type="Texture" id=8]
 [ext_resource path="res://Juego/Meteoritos/SectorMeteoritos.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Juego/Niveles/CamaraJuego.gd" type="Script" id=10]
+[ext_resource path="res://Juego/Naves/Estaciones/EstacionRecarga.tscn" type="PackedScene" id=11]
 
 [node name="NivelTest" type="Node2D"]
 script = ExtResource( 2 )
@@ -26,8 +27,9 @@ transform = Transform2D( 4, 0, 0, 3, 0, 0 )
 motion_mirroring = Vector2( 256, 256 )
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = -1.25992
+margin_right = 254.74
+margin_bottom = 256.0
 rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
 __meta__ = {
@@ -35,7 +37,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 952.562, 560.267 )
+position = Vector2( 783.733, 577.906 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 3 )
@@ -53,4 +55,7 @@ script = ExtResource( 10 )
 [node name="TweenZoom" type="Tween" parent="CamaraNivel"]
 
 [node name="TweenCamara" type="Tween" parent="."]
+
+[node name="EstacionRecarga" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1453.58, 695.007 )
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]
