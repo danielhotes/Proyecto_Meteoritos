@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sin_jugo_sfx.ogg-ebd444824fd0a316fd7f0d2acb440228.oggstr"
+
+[deps]
+
+source_file="res://Juego/Estaciones/sin_jugo_sfx.ogg"
+dest_files=[ "res://.import/sin_jugo_sfx.ogg-ebd444824fd0a316fd7f0d2acb440228.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

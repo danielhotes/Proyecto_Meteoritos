@@ -3,7 +3,7 @@ extends Area2D
 
 # Atributos
 var velocidad:Vector2 = Vector2.ZERO
-var danio:float = 1.5
+var danio:float = 2.5
 
 # Métodos
 func crear(pos:Vector2, dir:float, vel:float, danio_p:int) -> void:
