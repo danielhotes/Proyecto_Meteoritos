@@ -34,6 +34,7 @@ func conectar_seniales() -> void:
 	Eventos.connect("nave_en_sector_peligro", self, "_on_nave_en_sector_peligro")
 	Eventos.connect("spawn_meteorito", self, "_on_spawn_meteoritos")
 	Eventos.connect("meteorito_destruido", self, "_on_meteorito_destruido")
+	Eventos.connect("base_destruida", self, "_on_base_destruida")
 
 func crear_contenedores() -> void:
 	contenedor_proyectiles = Node.new()
@@ -72,12 +73,8 @@ func _on_nave_destruida(nave:Player, posicion:Vector2, num_explosiones:int) -> v
 			tiempo_transicion_camara
 		)
 	
-	for i in range(num_explosiones):
-		var new_explosion:Node2D = explosion.instance()
-		new_explosion.global_position = posicion + crear_posicion_aleatoria(100.0, 50.0)
-		add_child(new_explosion)
-		yield(get_tree().create_timer(0.6),"timeout")
-
+	crear_explosion(posicion, num_explosiones, 0.6, Vector2(100.0, 50.0), Vector2.ONE)
+	
 func _on_nave_en_sector_peligro(centro_cam:Vector2, tipo_peligro:String, num_peligros:int) -> void:
 	if tipo_peligro == "Meteorito":
 		crear_sector_meteoritos(centro_cam, num_peligros)
@@ -95,6 +92,11 @@ func _on_meteorito_destruido(pos:Vector2) -> void:
 	add_child(new_explosion_meteorito)
 	
 	controlar_meteoritos_restantes()
+
+func _on_base_destruida(pos_partes:Array) -> void:
+	for posicion in pos_partes:
+		crear_explosion(posicion)
+		yield(get_tree().create_timer(0.5),"timeout")
 
 func crear_sector_meteoritos(centro_camara:Vector2, numero_peligros:int) -> void:
 	meteoritos_totales = numero_peligros
@@ -149,6 +151,23 @@ func transicion_camaras(
 	)
 	camara_actual.current = true
 	$TweenCamara.start()
+
+func crear_explosion(
+	posicion:Vector2,
+	numero:int = 1,
+	intervalo:float = 0.0,
+	rangos_aleatorios:Vector2 = Vector2(0.0, 0.0),
+	escala:Vector2 = Vector2(2.0, 2.0)
+	) -> void:
+		for i in range(numero):
+			var new_explosion:Node2D = explosion.instance()
+			new_explosion.global_position = posicion + crear_posicion_aleatoria(
+				rangos_aleatorios.x,
+				rangos_aleatorios.y
+				)
+			new_explosion.scale = escala
+			add_child(new_explosion)
+			yield(get_tree().create_timer(intervalo),"timeout")
 
 ## Señales internas
 func _on_TweenCamara_tween_completed(object: Object, key: NodePath) -> void:
