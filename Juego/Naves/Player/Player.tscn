@@ -26,6 +26,7 @@ can_sleep = false
 linear_damp = 1.0
 angular_damp = 4.0
 script = ExtResource( 2 )
+hitpoints = 30.0
 num_explosiones = 3
 potencia_motor = 30
 

@@ -42,7 +42,7 @@ numero_peligros = 2
 [node name="ContenedorBasesEnemigas" type="Node" parent="."]
 
 [node name="BaseEnemiga" parent="ContenedorBasesEnemigas" instance=ExtResource( 13 )]
-position = Vector2( 434.758, 851.699 )
+position = Vector2( 527.411, 1297.15 )
 
 [node name="CamaraNivel" type="Camera2D" parent="."]
 script = ExtResource( 10 )
