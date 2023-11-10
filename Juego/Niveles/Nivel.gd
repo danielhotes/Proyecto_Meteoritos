@@ -35,6 +35,7 @@ func conectar_seniales() -> void:
 	Eventos.connect("spawn_meteorito", self, "_on_spawn_meteoritos")
 	Eventos.connect("meteorito_destruido", self, "_on_meteorito_destruido")
 	Eventos.connect("base_destruida", self, "_on_base_destruida")
+	Eventos.connect("spawn_orbital", self, "_on_spawn_orbital")
 
 func crear_contenedores() -> void:
 	contenedor_proyectiles = Node.new()
@@ -93,10 +94,13 @@ func _on_meteorito_destruido(pos:Vector2) -> void:
 	
 	controlar_meteoritos_restantes()
 
-func _on_base_destruida(pos_partes:Array) -> void:
+func _on_base_destruida(_base, pos_partes:Array) -> void:
 	for posicion in pos_partes:
 		crear_explosion(posicion)
 		yield(get_tree().create_timer(0.5),"timeout")
+
+func _on_spawn_orbital(enemigo:EnemigoOrbital) -> void:
+	contenedor_enemigos.add_child(enemigo)
 
 func crear_sector_meteoritos(centro_camara:Vector2, numero_peligros:int) -> void:
 	meteoritos_totales = numero_peligros

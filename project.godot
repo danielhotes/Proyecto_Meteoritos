@@ -39,12 +39,17 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Juego/Naves/Enemigos/EnemigoInterceptor.gd"
 }, {
+"base": "EnemigoBase",
+"class": "EnemigoOrbital",
+"language": "GDScript",
+"path": "res://Juego/Naves/Enemigos/EnemigoOrbital.gd"
+}, {
 "base": "Area2D",
 "class": "Escudo",
 "language": "GDScript",
 "path": "res://Juego/Naves/Player/Escudo/Escudo.gd"
 }, {
-"base": "Reference",
+"base": "Node2D",
 "class": "EstacionRecarga",
 "language": "GDScript",
 "path": "res://Juego/Estaciones/EstacionRecarga.gd"
@@ -84,7 +89,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Juego/Niveles/Nivel.gd"
 }, {
-"base": "RigidBody2D",
+"base": "NaveBase",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Juego/Naves/Player/Player.gd"
@@ -111,6 +116,7 @@ _global_script_class_icons={
 "Canion": "",
 "EnemigoBase": "",
 "EnemigoInterceptor": "",
+"EnemigoOrbital": "",
 "Escudo": "",
 "EstacionRecarga": "",
 "Estela": "",
@@ -135,6 +141,7 @@ config/icon="res://icono_nave.png"
 [autoload]
 
 Eventos="*res://Juego/Autoloads/Eventos.gd"
+DatosJuego="*res://Juego/Autoloads/DatosJuego.gd"
 
 [display]
 
