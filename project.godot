@@ -44,7 +44,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Juego/Naves/Player/Escudo/Escudo.gd"
 }, {
-"base": "Node2D",
+"base": "Reference",
 "class": "EstacionRecarga",
 "language": "GDScript",
 "path": "res://Juego/Estaciones/EstacionRecarga.gd"
@@ -84,7 +84,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Juego/Niveles/Nivel.gd"
 }, {
-"base": "NaveBase",
+"base": "RigidBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Juego/Naves/Player/Player.gd"
@@ -135,7 +135,6 @@ config/icon="res://icono_nave.png"
 [autoload]
 
 Eventos="*res://Juego/Autoloads/Eventos.gd"
-DatosJuego="*res://Juego/Autoloads/DatosJuego.gd"
 
 [display]
 
@@ -224,7 +223,6 @@ recarga_laser={
 2d_physics/layer_3="meteorito"
 2d_physics/layer_4="proyectil_player"
 2d_physics/layer_5="proyectil_enemigo"
-2d_physics/layer_6="base_enemiga"
 
 [rendering]
 
