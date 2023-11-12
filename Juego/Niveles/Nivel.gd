@@ -94,7 +94,7 @@ func _on_meteorito_destruido(pos:Vector2) -> void:
 	
 	controlar_meteoritos_restantes()
 
-func _on_base_destruida(_base, pos_partes:Array) -> void:
+func _on_base_destruida(base, pos_partes:Array) -> void:
 	for posicion in pos_partes:
 		crear_explosion(posicion)
 		yield(get_tree().create_timer(0.5),"timeout")

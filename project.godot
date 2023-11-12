@@ -230,7 +230,4 @@ recarga_laser={
 2d_physics/layer_3="meteorito"
 2d_physics/layer_4="proyectil_player"
 2d_physics/layer_5="proyectil_enemigo"
-
-[rendering]
-
-environment/default_environment="res://default_env.tres"
+2d_physics/layer_6="base_enemiga"
