@@ -38,6 +38,7 @@ func rotar_hacia_player() -> void:
 
 ## Señales Externas
 func _on_base_destruida(base:Node2D, _pos) -> void:
+	destruir()
 	if base == base_duenia:
 		destruir()
 
