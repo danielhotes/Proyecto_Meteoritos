@@ -12,7 +12,8 @@
 [ext_resource path="res://Juego/Enemigos/AreaColision.gd" type="Script" id=10]
 [ext_resource path="res://Juego/Naves/Enemigos/EnemigoOrbital.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Juego/Estaciones/PosicionesSpawn.gd" type="Script" id=12]
-[ext_resource path="res://Juego/Estaciones/RutaEnemigo.gd" type="Script" id=13]
+[ext_resource path="res://Juego/Naves/Enemigos/RutaEnemigo2.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Juego/Naves/Enemigos/RutaEnemigo.tscn" type="PackedScene" id=14]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 42.5507
@@ -120,16 +121,12 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Curve2D" id=7]
-_data = {
-"points": PoolVector2Array( 15.1532, 84.7459, -15.1532, -84.7459, -438, -19, -52.1356, 67.2717, 52.1356, -67.2717, -397.75, -124.255, -52.1356, 99.2258, 52.1356, -99.2258, -375.097, -243.183, -21.8633, 70.6353, 21.8633, -70.6353, -276.934, -280.938, -100.908, -28.5905, 100.908, 28.5905, -165.557, -407.417, -50.4538, -65.5899, 50.4538, 65.5899, -14.5371, -426.294, -102.589, -20.1815, 102.589, 20.1815, 121.381, -437.621, -45.3846, -52.0588, 45.3846, 52.0588, 211.992, -367.774, -13.3484, -82.7601, 13.3484, 82.7601, 340.359, -275.274, 21.3574, -117.466, -21.3574, 117.466, 398.879, -154.459, 14.9831, -94.3934, -14.9831, 94.3934, 442.298, -22.3163, 56.9357, -76.4137, -56.9357, 76.4137, 427.196, 100.387, 118.366, -11.9865, -118.366, 11.9865, 366.788, 247.631, 52.4408, 0, -52.4408, 0, 232.758, 328.805, 80.9086, 7.49154, -80.9086, -7.49154, 170.462, 406.202, 11.9865, 53.9391, -11.9865, -53.9391, -10.7617, 442.069, 35.9594, 70.4204, -35.9594, -70.4204, -169.332, 389.213, 37.4577, 26.9695, -37.4577, -26.9695, -312.801, 315.59, 37.4577, -32.9628, -37.4577, 32.9628, -399.638, 189.111, -23.0105, 1.12246, 23.0105, -1.12246, -441.168, 94.724, 0, 0, 0, 0, -437.393, -18.5408 )
-}
-
 [node name="BaseEnemiga" type="Node2D"]
 z_index = 35
 z_as_relative = false
 script = ExtResource( 8 )
 orbital = ExtResource( 11 )
+rutas = [ ExtResource( 14 ), ExtResource( 13 ) ]
 
 [node name="Sprites" type="Node2D" parent="."]
 
@@ -203,10 +200,6 @@ position = Vector2( 350, 0 )
 
 [node name="Oeste" type="Position2D" parent="PosicionesSpawn"]
 position = Vector2( -350, 0 )
-
-[node name="RutaEnemigo" type="Path2D" parent="."]
-curve = SubResource( 7 )
-script = ExtResource( 13 )
 
 [node name="TimerSpawnerEnemigos" type="Timer" parent="."]
 [connection signal="body_entered" from="AreaColision" to="." method="_on_AreaColision_body_entered"]
