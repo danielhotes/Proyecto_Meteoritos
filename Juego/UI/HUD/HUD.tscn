@@ -1,0 +1,168 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://icono_nave.png" type="Texture" id=1]
+[ext_resource path="res://Juego/UI/HUD/HUD.gd" type="Script" id=2]
+[ext_resource path="res://Juego/UI/HUD/ContenedorInformacion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Juego/UI/HUD/ContenedorInformacionEnergia.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 989.115 ]
+}
+
+[node name="FadeCanvas" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="FadeCanvas"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.37842
+margin_top = 2.37842
+margin_right = -2.37842
+margin_bottom = 2.37842
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="FadeCanvas/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -146.0
+margin_top = -116.5
+margin_right = 146.0
+margin_bottom = 116.5
+mouse_filter = 2
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeCanvas"]
+anims/fade_in = SubResource( 1 )
+
+[node name="InfoZonaRecarga" parent="." groups=[
+"contenedor_info",
+] instance=ExtResource( 3 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 318.0
+margin_bottom = 90.0
+
+[node name="AnimationPlayer" parent="InfoZonaRecarga" index="0"]
+autoplay = "ocultar"
+
+[node name="Label" parent="InfoZonaRecarga" index="1"]
+margin_top = -28.5
+margin_bottom = 28.5
+text = "En zona de recarga"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="InfoMeteoritos" parent="." groups=[
+"contenedor_info",
+] instance=ExtResource( 3 )]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0
+margin_top = -90.0
+margin_right = 318.0
+margin_bottom = 0.0
+auto_ocultar = true
+
+[node name="AnimationPlayer" parent="InfoMeteoritos" index="0"]
+autoplay = "ocultar"
+
+[node name="Label" parent="InfoMeteoritos" index="1"]
+anchor_top = 0.0
+anchor_bottom = 0.0
+margin_top = 6.0
+margin_bottom = 63.0
+align = 1
+valign = 3
+autowrap = true
+
+[node name="InfoTiempoRestante" parent="." groups=[
+"contenedor_info",
+] instance=ExtResource( 3 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -318.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 90.0
+auto_ocultar = true
+
+[node name="Label" parent="InfoTiempoRestante" index="1"]
+margin_top = -28.8784
+margin_bottom = 28.1216
+align = 1
+valign = 1
+
+[node name="AutoOcultarTimer" parent="InfoTiempoRestante" index="2"]
+wait_time = 3.0
+
+[node name="InfoLaser" parent="." groups=[
+"contenedor_info",
+] instance=ExtResource( 4 )]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -318.0
+margin_top = -90.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="Label" parent="InfoLaser" index="1"]
+text = "Energía Láser"
+
+[node name="InfoEscudo" parent="." groups=[
+"contenedor_info",
+] instance=ExtResource( 4 )]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -318.0
+margin_top = -181.0
+margin_right = 0.0
+margin_bottom = -91.0
+
+[node name="Label" parent="InfoEscudo" index="1"]
+text = "Energía Escudo"
+
+[editable path="InfoZonaRecarga"]
+
+[editable path="InfoMeteoritos"]
+
+[editable path="InfoTiempoRestante"]
+
+[editable path="InfoLaser"]
+
+[editable path="InfoEscudo"]

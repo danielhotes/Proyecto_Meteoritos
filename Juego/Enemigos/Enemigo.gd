@@ -3,6 +3,7 @@ extends Node2D
 var hitpoints:float = 10.0
 
 func _process(delta: float) -> void:
+	pass
 	#$Canion.set_esta_disparando(true)
 
 func recibir_danio(danio:float) -> void:
