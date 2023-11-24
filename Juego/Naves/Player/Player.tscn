@@ -32,7 +32,6 @@ potencia_motor = 30
 
 [node name="Sprite" parent="." index="0"]
 rotation = 1.5708
-scale = Vector2( 1e-05, 1e-05 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" parent="." index="1"]
@@ -59,6 +58,9 @@ position = Vector2( 0, 32 )
 
 [node name="LaserBeam2D" parent="." index="9" instance=ExtResource( 4 )]
 position = Vector2( 29.25, 0 )
+
+[node name="BarraSalud" parent="." index="10"]
+margin_bottom = 68.0
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="Canion"]

@@ -15,9 +15,11 @@ var estado_actual:int = ESTADO.SPAWN
 onready var canion:Canion = $Canion
 onready var impactos_sfx:AudioStreamPlayer = $AcuseDanioSFX
 onready var colisionador:CollisionShape2D = $CollisionShape2D
+onready var barra_salud:ProgressBar = $BarraSalud
 
 # Metodos
 func _ready() -> void:
+	barra_salud.set_valores(hitpoints)
 	controlador_estados(estado_actual)
 
 # Metodos Custom
@@ -48,6 +50,7 @@ func recibir_danio(danio:float) -> void:
 	hitpoints -= danio
 	if hitpoints <= 0.0:
 		destruir()
+	barra_salud.controlar_barra(hitpoints, true)
 	impactos_sfx.play()
 		
 # Señales internas
