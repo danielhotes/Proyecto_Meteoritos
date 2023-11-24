@@ -25,7 +25,7 @@ explosion_meteorito = ExtResource( 7 )
 sector_meteoritos = ExtResource( 9 )
 enemigo_interceptor = ExtResource( 12 )
 rele_masa = ExtResource( 3 )
-tiempo_limite = 150
+tiempo_limite = 15
 
 [node name="HUD" parent="." instance=ExtResource( 14 )]
 
