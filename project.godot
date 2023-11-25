@@ -166,6 +166,7 @@ config/icon="res://icono_nave.png"
 
 Eventos="*res://Juego/Autoloads/Eventos.gd"
 DatosJuego="*res://Juego/Autoloads/DatosJuego.gd"
+MusicaJuego="*res://Juego/Autoloads/MusicaJuego.tscn"
 
 [display]
 
