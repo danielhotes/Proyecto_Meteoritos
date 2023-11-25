@@ -2,14 +2,15 @@ class_name Nivel
 extends Node2D
 
 ## Atributos Export
+export var tiempo_limite:int = 10
+export(String, FILE, "*.tscn") var prox_nivel = ""
+export var tiempo_transicion_camara:float = 1.2
 export var explosion:PackedScene = null
 export var meteorito:PackedScene = null
 export var explosion_meteorito:PackedScene = null
 export var sector_meteoritos:PackedScene = null
 export var enemigo_interceptor:PackedScene = null
 export var rele_masa:PackedScene = null
-export var tiempo_transicion_camara:float = 1.2
-export var tiempo_limite:int = 10
 export var musica_nivel:AudioStream = null
 export var musica_peligro:AudioStream = null
 
@@ -49,7 +50,7 @@ func conectar_seniales() -> void:
 	Eventos.connect("meteorito_destruido", self, "_on_meteorito_destruido")
 	Eventos.connect("base_destruida", self, "_on_base_destruida")
 	Eventos.connect("spawn_orbital", self, "_on_spawn_orbital")
-
+	Eventos.connect("nivel_completado", self, "_on_nivel_completado")
 func crear_contenedores() -> void:
 	contenedor_proyectiles = Node.new()
 	contenedor_proyectiles.name = "ContenedorProyectiles"
@@ -133,6 +134,11 @@ func _on_base_destruida(_base, pos_partes:Array) -> void:
 
 func _on_spawn_orbital(enemigo:EnemigoOrbital) -> void:
 	contenedor_enemigos.add_child(enemigo)
+
+func _on_nivel_completado() -> void:
+	Eventos.emit_signal("nivel_terminado")
+	yield(get_tree().create_timer(1.0),"timeout")
+	get_tree().change_scene(prox_nivel)
 
 func crear_sector_meteoritos(centro_camara:Vector2, numero_peligros:int) -> void:
 	MusicaJuego.transicion_musicas()

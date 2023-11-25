@@ -67,13 +67,11 @@ anims/fade_in = SubResource( 1 )
 [node name="InfoZonaRecarga" parent="." groups=[
 "contenedor_info",
 ] instance=ExtResource( 3 )]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 0.0
 margin_top = 0.0
 margin_right = 318.0
 margin_bottom = 90.0
-
-[node name="AnimationPlayer" parent="InfoZonaRecarga" index="0"]
-autoplay = "ocultar"
 
 [node name="Label" parent="InfoZonaRecarga" index="1"]
 margin_top = -28.5
@@ -86,6 +84,7 @@ autowrap = true
 [node name="InfoMeteoritos" parent="." groups=[
 "contenedor_info",
 ] instance=ExtResource( 3 )]
+modulate = Color( 1, 1, 1, 0 )
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 0.0
@@ -93,9 +92,6 @@ margin_top = -90.0
 margin_right = 318.0
 margin_bottom = 0.0
 auto_ocultar = true
-
-[node name="AnimationPlayer" parent="InfoMeteoritos" index="0"]
-autoplay = "ocultar"
 
 [node name="Label" parent="InfoMeteoritos" index="1"]
 anchor_top = 0.0
@@ -109,6 +105,7 @@ autowrap = true
 [node name="InfoTiempoRestante" parent="." groups=[
 "contenedor_info",
 ] instance=ExtResource( 3 )]
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -318.0
@@ -169,3 +166,5 @@ text = "Energía Escudo"
 [editable path="InfoLaser"]
 
 [editable path="InfoEscudo"]
+
+[editable path="MiniMapa"]
