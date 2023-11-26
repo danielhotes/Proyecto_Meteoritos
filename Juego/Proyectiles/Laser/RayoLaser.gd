@@ -11,8 +11,8 @@ export var max_length := 1400.0
 # Base duration of the tween animation in seconds.
 export var growth_time := 0.1
 
-export var radio_danio:float = 5.0
-export var energia:float = 4.0
+export var radio_danio:float = 15.0
+export var energia:float = 7.0
 export var radio_desgaste:float = -1.0
 
 # If `true`, the laser is firing.

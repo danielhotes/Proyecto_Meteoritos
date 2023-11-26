@@ -1,9 +1,87 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Juego/Niveles/NivelBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Juego/Peligros/SectorDePeligro.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Juego/Estaciones/BaseEnemiga.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Juego/Estaciones/EstacionRecarga.tscn" type="PackedScene" id=4]
 
 [node name="Nivel5" instance=ExtResource( 1 )]
+tiempo_limite = 151
 prox_nivel = "res://Juego/Niveles/Nivel6.tscn"
+
+[node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" index="0" instance=ExtResource( 2 )]
+position = Vector2( 4955.91, 3680.37 )
+tipo_peligro = "Meteorito"
+numero_peligros = 5
+
+[node name="SectorDePeligro2" parent="TriggersLluviaMeteoritos" index="1" instance=ExtResource( 2 )]
+position = Vector2( 7156.48, -831.186 )
+tipo_peligro = "Meteorito"
+numero_peligros = 5
+
+[node name="SectorDePeligro3" parent="TriggersLluviaMeteoritos" index="2" instance=ExtResource( 2 )]
+position = Vector2( -2081.49, -1931.02 )
+tipo_peligro = "Meteorito"
+numero_peligros = 5
+
+[node name="SectorDePeligro4" parent="TriggersLluviaMeteoritos" index="3" instance=ExtResource( 2 )]
+position = Vector2( 1899.97, -706.387 )
+tipo_peligro = "Meteorito"
+numero_peligros = 5
+
+[node name="SectorDePeligro5" parent="TriggersLluviaMeteoritos" index="4" instance=ExtResource( 2 )]
+position = Vector2( 1558.23, 1358.09 )
+tipo_peligro = "Meteorito"
+numero_peligros = 5
+
+[node name="EstacionRecarga" parent="ContenedorEstaciones" index="0" instance=ExtResource( 4 )]
+position = Vector2( 10261.1, 3271.67 )
+energia = 20.0
+radio_energia_entregada = 0.1
+
+[node name="EstacionRecarga2" parent="ContenedorEstaciones" index="1" instance=ExtResource( 4 )]
+position = Vector2( -4470.12, 2425.55 )
+energia = 20.0
+radio_energia_entregada = 0.1
+
+[node name="BaseEnemiga" parent="ContenedorBasesEnemigas" index="0" instance=ExtResource( 3 )]
+position = Vector2( -430.031, -2930.59 )
+hitpoints = 50.0
+numero_orbitales = 7
+intervalo_spawn = 1.0
+
+[node name="BaseEnemiga2" parent="ContenedorBasesEnemigas" index="1" instance=ExtResource( 3 )]
+position = Vector2( -1975.56, -266.968 )
+hitpoints = 50.0
+numero_orbitales = 7
+intervalo_spawn = 1.0
+
+[node name="BaseEnemiga3" parent="ContenedorBasesEnemigas" index="2" instance=ExtResource( 3 )]
+position = Vector2( -234.932, 2456.11 )
+hitpoints = 50.0
+numero_orbitales = 7
+intervalo_spawn = 1.0
+
+[node name="BaseEnemiga4" parent="ContenedorBasesEnemigas" index="3" instance=ExtResource( 3 )]
+position = Vector2( 9663.83, -2826.15 )
+hitpoints = 50.0
+numero_orbitales = 7
+intervalo_spawn = 1.0
+
+[node name="SectorDePeligro" parent="TriggersInterceptores" index="0" instance=ExtResource( 2 )]
+position = Vector2( 4348.44, -2412.4 )
+tipo_peligro = "Enemigo"
+numero_peligros = 3
+
+[node name="SectorDePeligro2" parent="TriggersInterceptores" index="1" instance=ExtResource( 2 )]
+position = Vector2( 8597.83, 2016.77 )
+tipo_peligro = "Enemigo"
+numero_peligros = 3
+
+[node name="SectorDePeligro3" parent="TriggersInterceptores" index="2" instance=ExtResource( 2 )]
+position = Vector2( -3435.07, 1144.42 )
+tipo_peligro = "Enemigo"
+numero_peligros = 3
 
 [node name="FondoEstrellas" parent="." index="10"]
 color_fondo = Color( 0.0352941, 0.254902, 0.333333, 1 )

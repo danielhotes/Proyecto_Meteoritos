@@ -106,10 +106,10 @@ func spawnear_orbital() -> void:
 	)
 	Eventos.emit_signal("spawn_orbital", new_orbital)
 
+## Señales Internas
 func _on_AreaColision_body_entered(body: Node) -> void:
 	if body.has_method("destruir"):
 		body.destruir()
-
 
 func _on_VisibilityNotifier2D_screen_entered() -> void:
 	$VisibilityNotifier2D.queue_free()

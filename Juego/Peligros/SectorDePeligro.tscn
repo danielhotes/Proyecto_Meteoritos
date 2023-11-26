@@ -3,7 +3,7 @@
 [ext_resource path="res://SectorDePeligro.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 179.075, 106.203 )
+extents = Vector2( 264.613, 176.013 )
 
 [node name="SectorDePeligro" type="Area2D"]
 collision_layer = 0

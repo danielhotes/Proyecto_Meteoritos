@@ -7,15 +7,15 @@ export var cadencia_disparo:float = 0.8
 export var velocidad_proyectil:int = 100
 export var danio_proyectil:float = 1.0
 
+## Atributos
+var puntos_disparo:Array = []
+
 ## Atributos onready
 onready var timer_enfriamiento:Timer = $TimerEnfriamiento
 onready var disparo_sfx:AudioStreamPlayer2D = $DisparoSFX
 onready var esta_enfriado:bool = true
 onready var esta_disparando:bool = false setget set_esta_disparando
 onready var puede_disparar:bool = false setget set_puede_disparar
-
-## Atributos
-var puntos_disparo:Array = []
 
 ## Setters y Getters
 func set_esta_disparando(disparando:bool) -> void:
@@ -53,5 +53,6 @@ func disparar() -> void:
 		)
 		Eventos.emit_signal("disparo", new_proyectil)
 
+## Señales Internas
 func _on_TimerEnfriamiento_timeout() -> void:
 	esta_enfriado = true

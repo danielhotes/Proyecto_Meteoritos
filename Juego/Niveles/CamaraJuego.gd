@@ -1,12 +1,12 @@
 class_name CamaraJuego
 extends Camera2D
 
-## Variables Onready
-onready var tween_zoom:Tween = $TweenZoom
-
 ## Atributos
 var zoom_original:Vector2
 var puede_hacer_zoom: bool = true setget set_puede_hacer_zoom
+
+## Atributos Onready
+onready var tween_zoom:Tween = $TweenZoom
 
 ## Setters y Getters
 func set_puede_hacer_zoom(puede:bool) -> void:

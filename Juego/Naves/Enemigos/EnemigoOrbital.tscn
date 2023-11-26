@@ -42,6 +42,7 @@ mode = 3
 contacts_reported = 2
 contact_monitor = true
 script = ExtResource( 3 )
+num_explosiones = 1
 
 [node name="Sprite" parent="." index="0"]
 rotation = -1.5708

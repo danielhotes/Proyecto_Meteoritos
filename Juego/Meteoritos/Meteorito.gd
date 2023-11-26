@@ -39,8 +39,6 @@ func crear(pos:Vector2, dir:Vector2, tamanio:float) -> void:
 	angular_velocity = (vel_ang_base / tamanio) * aleatorizar_velocidad()
 	# Calcular hitpoints
 	hitpoints = hitpoints_base * tamanio
-	# Solo debug
-	print("hitpoints: ", hitpoints)
 
 ## Métodos
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:

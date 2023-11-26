@@ -4,10 +4,13 @@
 [ext_resource path="res://Juego/Estaciones/BaseEnemiga.tscn" type="PackedScene" id=2]
 
 [node name="Nivel1" instance=ExtResource( 1 )]
+tiempo_limite = 151
 prox_nivel = "res://Juego/Niveles/Nivel2.tscn"
 
 [node name="BaseEnemiga" parent="ContenedorBasesEnemigas" index="0" instance=ExtResource( 2 )]
-position = Vector2( 1905.11, 468.548 )
+position = Vector2( 2641.94, 105.472 )
+numero_orbitales = 3
+intervalo_spawn = 1.5
 
 [node name="FondoEstrellas" parent="." index="10"]
 color_fondo = Color( 0, 0, 0, 1 )

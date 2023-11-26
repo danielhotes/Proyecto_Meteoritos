@@ -1,17 +1,22 @@
 class_name Motor
 extends AudioStreamPlayer2D
 
+## Atributos Export
 export var tiempo_transicion:float = 0.6
 export var volumen_apagado:float = -30.0
 
-onready var tween_sonido:Tween = $Tween
-
+## Atributos
 var volumen_original:float
 
+## Atributos Onready
+onready var tween_sonido:Tween = $Tween
+
+## Métodos
 func _ready() -> void:
 	volumen_original = volume_db
 	volume_db = volumen_apagado
 
+## Métodos Custom
 func sonido_on() -> void:
 	if not playing:
 		play()

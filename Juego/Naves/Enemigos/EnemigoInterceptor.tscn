@@ -127,8 +127,9 @@ physics_material_override = SubResource( 1 )
 contacts_reported = 2
 contact_monitor = true
 script = ExtResource( 4 )
-hitpoints = 5.0
+hitpoints = 10.0
 num_explosiones = 1
+potencia_max = 700.0
 
 [node name="Sprite" parent="." index="0"]
 rotation = 4.71239
@@ -170,7 +171,7 @@ shape = SubResource( 5 )
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeteccion" index="0"]
-position = Vector2( 0, -0.561234 )
+position = Vector2( -2.5, 0.938766 )
 shape = SubResource( 6 )
 
 [node name="BarraSalud" parent="." index="8"]

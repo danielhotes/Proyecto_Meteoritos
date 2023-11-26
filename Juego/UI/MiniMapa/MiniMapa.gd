@@ -67,15 +67,6 @@ func conectar_seniales() -> void:
 	Eventos.connect("minimapa_objeto_creado", self, "obtener_objetos_minimapa")
 	Eventos.connect("minimapa_objeto_destruido", self, "quitar_icono")
 
-func _on_nivel_iniciado() -> void:
-	player = DatosJuego.get_player_actual()
-	obtener_objetos_minimapa()
-	set_process(true)
-
-func _on_nave_destruida(nave:NaveBase, _posicion, _explosiones) -> void:
-	if nave is Player:
-		player = null
-
 func obtener_objetos_minimapa() -> void:
 	var objetos_en_ventana:Array = get_tree().get_nodes_in_group("minimap")
 	for objeto in objetos_en_ventana:
@@ -116,6 +107,16 @@ func quitar_icono(objeto:Node2D) -> void:
 func ocultar() -> void:
 	if not esta_activo:
 		queue_free()
+
+## Señales Externas
+func _on_nivel_iniciado() -> void:
+	player = DatosJuego.get_player_actual()
+	obtener_objetos_minimapa()
+	set_process(true)
+
+func _on_nave_destruida(nave:NaveBase, _posicion, _explosiones) -> void:
+	if nave is Player:
+		player = null
 
 ## Señales Internas
 func _on_TimerVisibilidad_timeout() -> void:

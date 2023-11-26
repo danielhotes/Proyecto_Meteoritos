@@ -15,6 +15,11 @@
 [ext_resource path="res://Juego/Naves/Player/Player.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Environment" id=1]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 0.6
+glow_blend_mode = 0
+glow_bicubic_upscale = true
 
 [node name="NivelBase" type="Node2D"]
 script = ExtResource( 7 )
@@ -57,6 +62,7 @@ color_fondo = Color( 0.0666667, 0.0156863, 0.164706, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 13 )]
 position = Vector2( 713.736, 471.664 )
+hitpoints = 1000.0
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]
 [connection signal="timeout" from="RestartTimer" to="." method="_on_RestartTimer_timeout"]
 [connection signal="timeout" from="ActualizadorTimer" to="." method="_on_ActualizadorTimer_timeout"]

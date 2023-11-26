@@ -30,6 +30,7 @@ func fade_in() -> void:
 func fade_out() -> void:
 	$FadeCanvas/AnimationPlayer.play_backwards("fade_in")
 
+## Señales Externas
 func _on_detecto_zona_recarga(en_zona:bool) -> void:
 	if en_zona:
 		info_zona_recarga.mostrar_suavizado()

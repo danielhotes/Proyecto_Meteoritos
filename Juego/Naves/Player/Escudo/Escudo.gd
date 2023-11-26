@@ -1,9 +1,11 @@
 class_name Escudo
 extends Area2D
 
-export var energia:float = 8.0
+## Atributos Export
+export var energia:float = 12.0
 export var radio_desgaste:float = -1.6
 
+## Atributos
 var esta_activado:bool = false setget, get_esta_activado
 var energia_original:float
 
@@ -48,6 +50,7 @@ func controlar_energia(consumo:float) -> void:
 	
 	Eventos.emit_signal("cambio_energia_escudo", energia_original, energia)
 
+## Señales Internas
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "activandose" and esta_activado:
 		$AnimationPlayer.play("activado")

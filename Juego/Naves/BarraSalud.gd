@@ -42,6 +42,7 @@ func controlar_barra(hitpoints_nave:float, mostrar:bool) -> void:
 func set_hitpoints_actual(hitpoints:float) -> void:
 	value = hitpoints
 
+## Señales Internas
 func _on_TweenVisibilidad_tween_all_completed() -> void:
 	if modulate.a == 1.0:
 		controlar_barra(value, false)

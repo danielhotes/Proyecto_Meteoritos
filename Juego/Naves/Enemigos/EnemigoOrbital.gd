@@ -5,13 +5,13 @@ extends EnemigoBase
 export var rango_max_ataque:float = 1400.00
 export var velocidad:float = 400.0
 
-## Atributos Onready
-onready var detector_obstaculo:RayCast2D = $DetectorObstaculo
-
 ## Atributos
 var base_duenia:Node2D
 var ruta:Path2D
 var path_follow:PathFollow2D
+
+## Atributos Onready
+onready var detector_obstaculo:RayCast2D = $DetectorObstaculo
 
 ## Constructor
 func crear(pos:Vector2, duenia:Node2D, ruta_duenia:Path2D) -> void:
@@ -21,6 +21,7 @@ func crear(pos:Vector2, duenia:Node2D, ruta_duenia:Path2D) -> void:
 	path_follow = PathFollow2D.new()
 	ruta.add_child(path_follow)
 
+## Métodos
 func _ready() -> void:
 	Eventos.connect("base_destruida", self, "_on_base_destruida")
 
@@ -37,8 +38,7 @@ func rotar_hacia_player() -> void:
 		canion.set_esta_disparando(true)
 
 ## Señales Externas
-func _on_base_destruida(base:Node2D, _pos) -> void:
-	destruir()
+func _on_base_destruida(base:Node2D, _posiciones) -> void:
 	if base == base_duenia:
 		destruir()
 
