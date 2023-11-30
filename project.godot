@@ -158,7 +158,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Meteoritos"
+config/name="Meteoritos - Leandro Daniel Hotes"
 run/main_scene="res://Juego/Niveles/MenuPrincipal.tscn"
 config/icon="res://icono_nave.png"
 
